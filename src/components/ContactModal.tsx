@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Copy, Check, Send } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useToast } from "@/hooks/use-toast";
 import { socialLinks, contactEmail } from "@/data";
+import { emailConfig } from "@/config/email";
 
 interface ContactModalProps {
 	isOpen: boolean;
@@ -15,6 +18,8 @@ interface ContactModalProps {
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 	const { t } = useLanguage();
+	const { toast } = useToast();
+	const formRef = useRef<HTMLFormElement>(null);
 	const [copied, setCopied] = useState(false);
 	const [showEmailForm, setShowEmailForm] = useState(false);
 	const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -32,18 +37,33 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
 	const handleSendEmail = async (e: React.FormEvent) => {
 		e.preventDefault();
-		setSending(true);
+		if (!formRef.current) {
+			setSending(false);
+			return;
+		}
 
-		// Construct mailto link with form data
-		const subject = encodeURIComponent(`Contact from ${formData.name}`);
-		const body = encodeURIComponent(
-			`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
-		);
-		window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+		try {
+			await emailjs.sendForm(emailConfig.serviceId, emailConfig.templateId, formRef.current, emailConfig.publicKey);
 
-		setSending(false);
-		setFormData({ name: "", email: "", message: "" });
-		setShowEmailForm(false);
+			toast({
+				title: t.contact.successTitle || "Message sent!",
+				description: t.contact.successDescription || "Your message has been sent successfully.",
+				duration: 3000,
+			});
+
+			setFormData({ name: "", email: "", message: "" });
+			setShowEmailForm(false);
+		} catch (error) {
+			console.error("EmailJS Error:", error);
+			toast({
+				title: t.contact.errorTitle || "Error",
+				description: t.contact.errorDescription || "Failed to send message. Please try again or use the email link.",
+				variant: "destructive",
+				duration: 5000,
+			});
+		} finally {
+			setSending(false);
+		}
 	};
 
 	const handleBack = () => {
@@ -85,6 +105,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 				<div className="p-8 space-y-4">
 					{showEmailForm ? (
 						<motion.form
+							ref={formRef}
 							initial={{ opacity: 0, x: 20 }}
 							animate={{ opacity: 1, x: 0 }}
 							onSubmit={handleSendEmail}
@@ -100,6 +121,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 							</button>
 							<div>
 								<Input
+									name="from_name"
 									placeholder={t.contact.namePlaceholder}
 									value={formData.name}
 									onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -109,6 +131,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 							</div>
 							<div>
 								<Input
+									name="reply_to"
 									type="email"
 									placeholder={t.contact.emailPlaceholder}
 									value={formData.email}
@@ -119,6 +142,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 							</div>
 							<div>
 								<Textarea
+									name="message"
 									placeholder={t.contact.messagePlaceholder}
 									value={formData.message}
 									onChange={(e) => setFormData({ ...formData, message: e.target.value })}
