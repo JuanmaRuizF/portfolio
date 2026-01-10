@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Copy, Check, Send } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -69,6 +69,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 		<Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
 			<DialogContent className="max-w-lg p-0 gap-0 bg-card border-border/50 overflow-hidden">
 				<DialogTitle className="sr-only">{t.contact.title}</DialogTitle>
+				<DialogDescription className="sr-only">{t.contact.description}</DialogDescription>
 
 				{/* Header */}
 				<div className="relative p-8 pb-0">

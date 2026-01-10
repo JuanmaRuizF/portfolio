@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Github, ChevronLeft, ChevronRight, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import type { Project } from "@/data";
@@ -47,6 +47,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 		<Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
 			<DialogContent className="max-w-4xl p-0 gap-0 bg-card border-border/50 overflow-hidden">
 				<DialogTitle className="sr-only">{project.title[language]}</DialogTitle>
+				<DialogDescription className="sr-only">{project.description[language]}</DialogDescription>
 
 				{/* Header with close button - Always on top */}
 				<div className="absolute top-4 right-4 z-50 flex gap-2">
