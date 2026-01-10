@@ -32,8 +32,11 @@ export function Navigation() {
 	const scrollToSection = (id: string) => {
 		const element = document.getElementById(id);
 		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
 			setIsOpen(false);
+			// Small delay to allow menu to close before scrolling
+			setTimeout(() => {
+				element.scrollIntoView({ behavior: "smooth" });
+			}, 100);
 		}
 	};
 
@@ -193,11 +196,7 @@ export function Navigation() {
 									transition={{ delay: index * 0.05 }}
 									type="button"
 									className="text-left px-4 py-3 text-sm font-mono tracking-wider uppercase text-muted-foreground hover:text-primary hover:bg-primary/5 border-l-2 border-transparent hover:border-primary transition-all cursor-pointer"
-									onClick={(e) => {
-										e.preventDefault();
-										e.stopPropagation();
-										scrollToSection(item);
-									}}
+									onClick={(e) => scrollToSection(item)}
 								>
 									{t.nav[item]}
 								</motion.button>
