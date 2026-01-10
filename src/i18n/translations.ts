@@ -126,7 +126,7 @@ Mis principales áreas de interés son la arquitectura de soluciones, la computa
 			],
 		},
 		experience: {
-			title: "Experiencia y Educación",
+			title: "Experiencia y Formación",
 			subtitle: "Mi trayectoria profesional",
 			experienceTab: "Experiencia",
 			educationTab: "Educación",
