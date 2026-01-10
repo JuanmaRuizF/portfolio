@@ -1,5 +1,26 @@
 import type { Project } from "./types";
 
+// Traffic Prediction Images
+import trafficImg0 from "@/assets/projects/traffic-prediction/NY-Traffic-Prediction.JPG";
+import trafficImg1 from "@/assets/projects/traffic-prediction/Img1.png";
+import trafficImg2 from "@/assets/projects/traffic-prediction/Img2.png";
+import trafficImg3 from "@/assets/projects/traffic-prediction/Img3.png";
+import trafficImg4 from "@/assets/projects/traffic-prediction/Img4.png";
+import trafficImg5 from "@/assets/projects/traffic-prediction/Img5.png";
+
+// Location Advisor Images
+import locationImg1 from "@/assets/projects/location-advisor/Img1.PNG";
+import locationImg2 from "@/assets/projects/location-advisor/Img2.PNG";
+import locationImg3 from "@/assets/projects/location-advisor/Img3.PNG";
+import locationImg4 from "@/assets/projects/location-advisor/Img4.PNG";
+
+// Classic Fun Games Images
+import gamesCFG from "@/assets/projects/classic-fun-games/CFG.PNG";
+import gamesImg1 from "@/assets/projects/classic-fun-games/Img1.PNG";
+import gamesImg2 from "@/assets/projects/classic-fun-games/Img2.PNG";
+import gamesImg3 from "@/assets/projects/classic-fun-games/Img3.PNG";
+import gamesImg4 from "@/assets/projects/classic-fun-games/Img4.PNG";
+
 export const projects: Project[] = [
 	{
 		id: "project-1",
@@ -23,14 +44,7 @@ The second module is a web page that visualizes the data in graphs by hour or st
 El segundo módulo es una página web que visualiza los datos en gráficos por hora o calle, mostrando la comparación entre predicciones y valores reales. La información se actualiza automáticamente conforme se generan nuevos datos en tiempo real.
                         `,
 		},
-		images: [
-			"/src/assets/projects/traffic-prediction/NY-Traffic-Prediction.JPG",
-			"/src/assets/projects/traffic-prediction/Img1.png",
-			"/src/assets/projects/traffic-prediction/Img2.png",
-			"/src/assets/projects/traffic-prediction/Img3.png",
-			"/src/assets/projects/traffic-prediction/Img4.png",
-			"/src/assets/projects/traffic-prediction/Img5.png",
-		],
+		images: [trafficImg0, trafficImg1, trafficImg2, trafficImg3, trafficImg4, trafficImg5],
 		technologies: ["Python", "Pandas", "Tensorflow", "React"],
 		liveUrl: "",
 		githubUrl: "https://github.com/JuanmaRuizF/NY-Traffic-Prediction",
@@ -49,12 +63,7 @@ El segundo módulo es una página web que visualiza los datos en gráficos por h
 			en: "It is possible to define the number of results, the search radius, the order of the items, and the desired location. Users can add or remove places from favorites and view them on a dedicated page with all their details. Data is obtained from various endpoints of the Foursquare API.",
 			es: "Es posible definir el número de resultados, el radio de búsqueda, el orden de los elementos y la ubicación deseada. Los usuarios pueden añadir o eliminar lugares de favoritos y consultarlos en una página dedicada con todos sus detalles. Los datos se obtienen de varios endpoints de la API de Foursquare.",
 		},
-		images: [
-			"/src/assets/projects/location-advisor/Img1.PNG",
-			"/src/assets/projects/location-advisor/Img2.PNG",
-			"/src/assets/projects/location-advisor/Img3.PNG",
-			"/src/assets/projects/location-advisor/Img4.PNG",
-		],
+		images: [locationImg1, locationImg2, locationImg3, locationImg4],
 		technologies: ["React", "Leaflet"],
 		liveUrl: "https://juanmaruizf.github.io/location-advisor/#/",
 		githubUrl: "https://github.com/JuanmaRuizF/location-advisor",
@@ -73,13 +82,7 @@ El segundo módulo es una página web que visualiza los datos en gráficos por h
 			en: "Game implementations: Sudoku, Connect 4, and a memory game. Some games support difficulty selection and additional features such as automatic solving in Sudoku or validation of user inputs.",
 			es: "Implementaciones de juegos: Sudoku, Conecta 4 y un juego de memoria. Algunos juegos soportan selección de dificultad y características adicionales como resolución automática en Sudoku o validación de entradas del usuario.",
 		},
-		images: [
-			"/src/assets/projects/classic-fun-games/CFG.PNG",
-			"/src/assets/projects/classic-fun-games/Img1.PNG",
-			"/src/assets/projects/classic-fun-games/Img2.PNG",
-			"/src/assets/projects/classic-fun-games/Img3.PNG",
-			"/src/assets/projects/classic-fun-games/Img4.PNG",
-		],
+		images: [gamesCFG, gamesImg1, gamesImg2, gamesImg3, gamesImg4],
 		technologies: ["React"],
 		liveUrl: "https://juanmaruizf.github.io/classic-fun-games/",
 		githubUrl: "https://github.com/JuanmaRuizF/classic-fun-games",
