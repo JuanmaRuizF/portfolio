@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Copy, Check, Send } from "lucide-react";
+import { Mail, Github, Linkedin, Copy, Check, Send, Phone } from "lucide-react";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
@@ -21,14 +21,23 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 	const { toast } = useToast();
 	const formRef = useRef<HTMLFormElement>(null);
 	const [copied, setCopied] = useState(false);
+	const [phoneCopied, setPhoneCopied] = useState(false);
 	const [showEmailForm, setShowEmailForm] = useState(false);
 	const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 	const [sending, setSending] = useState(false);
+
+	const phoneNumber = "+34 601 125 836";
 
 	const handleCopyEmail = async () => {
 		await navigator.clipboard.writeText(contactEmail);
 		setCopied(true);
 		setTimeout(() => setCopied(false), 2000);
+	};
+
+	const handleCopyPhone = async () => {
+		await navigator.clipboard.writeText(phoneNumber.replace(/\s/g, ""));
+		setPhoneCopied(true);
+		setTimeout(() => setPhoneCopied(false), 2000);
 	};
 
 	const handleEmailClick = () => {
@@ -188,6 +197,37 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 									className="px-4 border-l border-border/50 hover:bg-primary/5 transition-all flex items-center justify-center"
 								>
 									{copied ? (
+										<Check className="h-4 w-4 text-primary" />
+									) : (
+										<Copy className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+									)}
+								</button>
+							</motion.div>
+
+							{/* Phone method with copy */}
+							<motion.div
+								initial={{ opacity: 0, x: -20 }}
+								animate={{ opacity: 1, x: 0 }}
+								transition={{ delay: 0.1 }}
+								className="group flex items-stretch gap-2 bg-secondary/30 border border-border/50 hover:border-primary/50 transition-all"
+							>
+								<a
+									href={`tel:${phoneNumber.replace(/\s/g, "")}`}
+									className="flex-1 flex items-center gap-4 p-4 hover:bg-primary/5 transition-all text-left"
+								>
+									<div className="p-3 bg-background border border-border/50 group-hover:border-primary/50 transition-colors">
+										<Phone className="h-5 w-5 text-primary" />
+									</div>
+									<div className="flex-1 min-w-0">
+										<p className="font-mono text-xs text-muted-foreground tracking-wider uppercase mb-1">Phone</p>
+										<p className="text-sm text-foreground truncate">{phoneNumber}</p>
+									</div>
+								</a>
+								<button
+									onClick={handleCopyPhone}
+									className="px-4 border-l border-border/50 hover:bg-primary/5 transition-all flex items-center justify-center"
+								>
+									{phoneCopied ? (
 										<Check className="h-4 w-4 text-primary" />
 									) : (
 										<Copy className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />

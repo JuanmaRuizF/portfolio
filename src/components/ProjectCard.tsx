@@ -99,7 +99,7 @@ export function ProjectCard({ project, index, onLearnMore }: ProjectCardProps) {
 				{/* Learn More */}
 				<motion.button
 					onClick={() => onLearnMore(project)}
-					className="group/btn flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-primary transition-colors"
+					className="group/btn flex items-center gap-2 text-sm font-mono px-4 py-2 bg-primary/10 border border-primary/50 text-primary hover:bg-primary/20 hover:border-primary transition-all"
 					whileHover={{ x: 4 }}
 				>
 					<span>{t.projects.learnMore}</span>

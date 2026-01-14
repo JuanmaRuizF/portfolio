@@ -86,20 +86,22 @@ export function SkillsSection() {
 												<motion.div
 													key={skill.name}
 													variants={item}
-													whileHover={{ scale: 1.05, y: -2 }}
-													className="group relative px-4 py-3 bg-card/80 border border-border/50 flex items-center gap-3 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-default"
+													/* whileHover={{ scale: 1.05, y: -2 }} */
+													className="relative px-4 py-3 bg-card/80 border border-border/50 flex items-center gap-3 transition-all duration-300 cursor-default" /* hover:border-primary/50 hover:bg-primary/5 */
 												>
 													<TechIcon
 														icon={skill.icon}
-														className="h-4 w-4 text-primary/70 group-hover:text-primary transition-colors"
+														className="h-4 w-4 text-primary/70 transition-colors" /* group-hover:text-primary */
 													/>
-													<span className="text-sm text-foreground/80 group-hover:text-foreground transition-colors">
+													<span className="text-sm text-foreground/80 transition-colors">
+														{" "}
+														{/* group-hover:text-foreground */}
 														{skill.name}
 													</span>
-													{/* Hover glow effect */}
+													{/* Hover glow effect
 													<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
 														<div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent" />
-													</div>
+													</div> */}
 												</motion.div>
 											))}
 										</div>
@@ -133,12 +135,14 @@ export function SkillsSection() {
 								<motion.div
 									key={index}
 									variants={item}
-									whileHover={{ scale: 1.02, x: 4 }}
-									className="group px-5 py-4 bg-card/80 border border-border/50 hover:border-accent/50 hover:bg-accent/5 transition-all duration-300 cursor-default"
+									/* whileHover={{ scale: 1.02, x: 4 }} */
+									className="group px-5 py-4 bg-card/80 border border-border/50 transition-all duration-300 cursor-default" /* hover:border-accent/50 hover:bg-accent/5 */
 								>
 									<div className="flex items-center gap-3">
 										<span className="text-accent/50 font-mono text-xs">{String(index + 1).padStart(2, "0")}</span>
-										<span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+										<span className="text-sm text-muted-foreground transition-colors">
+											{" "}
+											{/* group-hover:text-foreground */}
 											{skill}
 										</span>
 									</div>

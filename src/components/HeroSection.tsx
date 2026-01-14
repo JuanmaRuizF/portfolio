@@ -24,18 +24,16 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
 
 			<div className="section-container relative z-10 pt-20">
 				<div className="text-center max-w-5xl mx-auto">
-					{/* Name with handwritten font - larger with better contrast */}
 					<motion.h1
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-						className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-handwritten font-bold mb-4 tracking-wide px-4"
+						className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-4 tracking-wide px-4"
 					>
 						<span
 							className="text-neon"
 							style={{
-								textShadow: "0 0 30px hsl(180 100% 50% / 0.7), 0 0 60px hsl(320 100% 60% / 0.5)",
-								WebkitTextStroke: "1px rgba(0,0,0,0.8)",
+								textShadow: "0 0 20px hsl(180 100% 50% / 0.4), 0 0 40px hsl(320 100% 60% / 0.2)",
 							}}
 						>
 							{t.hero.name}

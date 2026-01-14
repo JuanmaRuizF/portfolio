@@ -1,6 +1,47 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export function RetrowaveBackground() {
+	const [gridPulses, setGridPulses] = useState<Array<{ id: number; x: number; isVertical: boolean }>>([]);
+	const [centerLines, setCenterLines] = useState<number[]>([]);
+
+	useEffect(() => {
+		const calculateCenterLines = () => {
+			const viewportWidth = window.innerWidth;
+			const totalLines = Math.floor(viewportWidth / 40);
+			const centerStart = Math.floor(totalLines / 2) - 4; // Start 4 lines before center
+			const centerIndices = Array.from({ length: 8 }, (_, i) => centerStart + i);
+			setCenterLines(centerIndices);
+		};
+
+		calculateCenterLines();
+		window.addEventListener("resize", calculateCenterLines);
+		return () => window.removeEventListener("resize", calculateCenterLines);
+	}, []);
+
+	useEffect(() => {
+		if (centerLines.length === 0) return;
+
+		let pulseId = 0;
+
+		const addGridPulse = () => {
+			const randomIndex = Math.floor(Math.random() * centerLines.length);
+			const lineIndex = centerLines[randomIndex];
+			const newPulse = { id: pulseId++, x: lineIndex * 40, isVertical: true };
+
+			setGridPulses((prev) => [...prev, newPulse]);
+
+			// Remove pulse after animation completes
+			setTimeout(() => {
+				setGridPulses((prev) => prev.filter((p) => p.id !== newPulse.id));
+			}, 2000);
+		};
+
+		const interval = setInterval(addGridPulse, 2500);
+		addGridPulse(); // Start with one immediately
+		return () => clearInterval(interval);
+	}, [centerLines]);
+
 	return (
 		<div className="absolute inset-0 overflow-hidden">
 			{/* Base layer - dark blue/purple for the bottom half */}
@@ -93,7 +134,34 @@ export function RetrowaveBackground() {
               `,
 							backgroundSize: "40px 40px",
 						}}
-					/>
+					>
+						{/* Animated grid pulses */}
+						{gridPulses.map((pulse) => (
+							<motion.div
+								key={pulse.id}
+								className="absolute"
+								initial={{
+									left: pulse.x,
+									top: 0,
+									opacity: 0,
+								}}
+								animate={{
+									top: "100%",
+									opacity: [0, 1, 1, 0],
+								}}
+								transition={{
+									duration: 2,
+									ease: "easeInOut",
+								}}
+								style={{
+									width: "2px",
+									height: "100%",
+									background: "linear-gradient(to bottom, transparent, hsl(195, 100%, 65%, 1), transparent)",
+									boxShadow: `0 0 10px hsl(195, 100%, 65%, 0.8)`,
+								}}
+							/>
+						))}
+					</div>
 					{/* Horizon glow */}
 					<div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[hsl(320,100%,50%,0.6)] to-transparent blur-sm z-10" />
 				</div>
@@ -119,6 +187,77 @@ export function RetrowaveBackground() {
 				animate={{ opacity: [0.3, 0.7, 0.3] }}
 				transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
 				className="absolute top-[20%] left-[35%] w-0.5 h-0.5 bg-white rounded-full"
+			/>
+			{/* Additional stars */}
+			<motion.div
+				animate={{ opacity: [0.2, 0.6, 0.2] }}
+				transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+				className="absolute top-[5%] left-[10%] w-1 h-1 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.4, 0.85, 0.4] }}
+				transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+				className="absolute top-[12%] right-[15%] w-0.5 h-0.5 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.35, 0.75, 0.35] }}
+				transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+				className="absolute top-[25%] left-[8%] w-1.5 h-1.5 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.25, 0.65, 0.25] }}
+				transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+				className="absolute top-[18%] right-[8%] w-1 h-1 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.5, 0.95, 0.5] }}
+				transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+				className="absolute top-[6%] left-[45%] w-0.5 h-0.5 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.3, 0.7, 0.3] }}
+				transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+				className="absolute top-[22%] right-[35%] w-1 h-1 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.45, 0.9, 0.45] }}
+				transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
+				className="absolute top-[3%] right-[50%] w-1.5 h-1.5 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.2, 0.55, 0.2] }}
+				transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+				className="absolute top-[28%] left-[25%] w-0.5 h-0.5 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.4, 0.8, 0.4] }}
+				transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+				className="absolute top-[14%] left-[55%] w-1 h-1 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.35, 0.7, 0.35] }}
+				transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+				className="absolute top-[9%] right-[60%] w-0.5 h-0.5 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.5, 1, 0.5] }}
+				transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+				className="absolute top-[30%] right-[18%] w-1 h-1 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.25, 0.6, 0.25] }}
+				transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2.2 }}
+				className="absolute top-[4%] left-[70%] w-1.5 h-1.5 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.3, 0.75, 0.3] }}
+				transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
+				className="absolute top-[17%] left-[75%] w-0.5 h-0.5 bg-white rounded-full"
+			/>
+			<motion.div
+				animate={{ opacity: [0.45, 0.85, 0.45] }}
+				transition={{ duration: 2.9, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
+				className="absolute top-[26%] left-[60%] w-1 h-1 bg-white rounded-full"
 			/>
 		</div>
 	);
