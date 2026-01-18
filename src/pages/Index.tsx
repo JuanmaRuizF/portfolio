@@ -18,8 +18,8 @@ const Index = () => {
 				<main>
 					<HeroSection onContactClick={() => setIsContactOpen(true)} />
 					<AboutSection />
-					<SkillsSection />
 					<ExperienceSection />
+					<SkillsSection />
 					<ProjectsSection />
 				</main>
 				<ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />

@@ -4,7 +4,7 @@ import { Menu, X, Globe, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const navItems = ["home", "about", "skills", "experience", "projects"] as const;
+const navItems = ["home", "about", "experience", "skills", "projects"] as const;
 
 export function Navigation() {
 	const [isOpen, setIsOpen] = useState(false);
