@@ -10,7 +10,7 @@ export const translations = {
 		},
 		hero: {
 			name: "Juan Manuel Ruiz Fránquiz",
-			role: "Software Developer",
+			role: "Software Engineer",
 			description:
 				"Building elegant solutions with modern technologies. Passionate about clean code and great user experiences.",
 			downloadCV: "Download CV",
@@ -98,7 +98,7 @@ My main areas of interest are solution architecture, cloud computing, and data s
 		},
 		hero: {
 			name: "Juan Manuel Ruiz Fránquiz",
-			role: "Desarrollador de Software",
+			role: "Ingeniero de Software",
 			description:
 				"Construyendo soluciones elegantes con tecnologías modernas. Apasionado por el código limpio y las excelentes experiencias de usuario.",
 			downloadCV: "Descargar CV",
