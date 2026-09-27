@@ -138,13 +138,12 @@ export function SkillsSection() {
 									/* whileHover={{ scale: 1.02, x: 4 }} */
 									className="group px-5 py-4 bg-card/80 border border-border/50 transition-all duration-300 cursor-default" /* hover:border-accent/50 hover:bg-accent/5 */
 								>
-									<div className="flex items-center gap-3">
+									<div className="flex items-baseline gap-3">
 										<span className="text-accent/50 font-mono text-xs">{String(index + 1).padStart(2, "0")}</span>
-										<span className="text-sm text-muted-foreground transition-colors">
-											{" "}
-											{/* group-hover:text-foreground */}
-											{skill}
-										</span>
+										<div>
+											<p className="text-sm text-foreground">{skill.name}</p>
+											<p className="mt-1 text-xs leading-relaxed text-muted-foreground">{skill.proof}</p>
+										</div>
 									</div>
 								</motion.div>
 							))}

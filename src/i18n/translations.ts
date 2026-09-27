@@ -19,13 +19,11 @@ export const translations = {
 		about: {
 			title: "About Me",
 			subtitle: "Get to know me",
-			description: `
-                        I am a computer engineer, born and raised in Gran Canaria, Spain. After completing my university studies, I moved to Madrid, where I currently work professionally.
+			description: `I'm a software engineer from Gran Canaria, based in Madrid. I specialise in cloud architecture and data platforms: systems that are scalable, reliable and easy to maintain and evolve.
 
-I have a broad vision of software development, participating in the full lifecycle of solutions: planning, architecture, implementation, deployment, and maintenance. I have worked on data science projects as well as frontend and backend applications, always with a practical approach focused on solving real problems.
+At Arup I design and build data platforms and applications for clients such as Bidegi, Aena, Adif and Inditex, from architecture to production. What I enjoy most is turning abstract, complex problems into clear solutions that deliver real value, and helping the team see them through. I'm an AWS Certified Solutions Architect.
 
-My main areas of interest are solution architecture, cloud computing, and data science. Curiosity and adaptability are the pillars with which I tackle new concepts, technologies, and challenges, always aiming to generate impact and add value to the systems I develop.
-`,
+I've been passionate about computing for as long as I can remember, and the curiosity that led me to teach myself still shapes how I work. Right now I'm especially interested in bringing AI into the software lifecycle to design and build better solutions. Outside work, you'll find me travelling, doing sport or hunting down a new place to eat.`,
 		},
 		skills: {
 			title: "Skills",
@@ -33,12 +31,26 @@ My main areas of interest are solution architecture, cloud computing, and data s
 			techStack: "Tech Stack",
 			softSkills: "Soft Skills",
 			softSkillsList: [
-				"Adaptability",
-				"Teamwork",
-				"Communication",
-				"Creativity",
-				"Problem Solving",
-				"Continuous Learning",
+				{
+					name: "Adaptability",
+					proof:
+						"I've worked across data, cloud and full-stack projects, and I get up to speed with new technologies quickly.",
+				},
+				{
+					name: "Teamwork",
+					proof: "I look after team spirit and collaboration so the team gets projects over the line.",
+				},
+				{
+					name: "Communication",
+					proof:
+						"I work with clients and colleagues to turn business requirements into architectures and concrete tasks.",
+				},
+				{ name: "Creativity", proof: "I look for new, more efficient ways to solve problems." },
+				{ name: "Problem Solving", proof: "I turn complex problems into clear, maintainable solutions." },
+				{
+					name: "Continuous Learning",
+					proof: "I keep learning on my own to stay current in cloud, data and AI.",
+				},
 			],
 		},
 		experience: {
@@ -83,8 +95,7 @@ My main areas of interest are solution architecture, cloud computing, and data s
 			back: "Back",
 		},
 		footer: {
-			rights: "All rights reserved.",
-			madeWith: "Made with",
+			backToTop: "Back to top",
 		},
 		a11y: {
 			home: "Go to top",
@@ -119,13 +130,11 @@ My main areas of interest are solution architecture, cloud computing, and data s
 		about: {
 			title: "Sobre Mí",
 			subtitle: "Conóceme",
-			description: `
-                        Soy ingeniero informático, nacido y criado en Gran Canaria, España. Tras completar mi formación universitaria, me trasladé a Madrid, donde actualmente desarrollo mi carrera profesional.
+			description: `Soy ingeniero de software grancanario, afincado en Madrid. Me especializo en arquitectura cloud y plataformas de datos: sistemas escalables, fiables y fáciles de mantener y evolucionar.
 
-Cuento con una visión transversal del desarrollo de software, participando en todo el ciclo de vida de las soluciones: planificación, arquitectura, implementación, despliegue y evolución en producción. He trabajado en proyectos de ciencia de datos y aplicaciones frontend y backend, con un enfoque práctico orientado a resolver problemas reales.
+En Arup diseño y construyo plataformas de datos y aplicaciones para clientes como Bidegi, Aena, Adif o Inditex, de la arquitectura a producción. Lo que más disfruto es convertir problemas abstractos y complejos en soluciones claras que aporten valor, y ayudar al equipo a sacarlas adelante. Estoy certificado como AWS Solutions Architect.
 
-Mis principales áreas de interés son la arquitectura de soluciones, la computación en la nube y la ciencia de datos. La curiosidad y la capacidad de adaptación son los pilares con los que afronto nuevos retos, buscando siempre generar impacto y aportar valor en los sistemas que desarrollo.
-                        `,
+La informática me ha apasionado desde siempre, y la curiosidad que me llevó a aprender por mi cuenta sigue marcando cómo trabajo. Ahora me interesa especialmente integrar la IA en el ciclo de vida del software para diseñar y construir mejores soluciones. Fuera del trabajo, me encontrarás viajando, haciendo deporte o buscando algún sitio nuevo donde comer.`,
 		},
 		skills: {
 			title: "Habilidades",
@@ -133,12 +142,29 @@ Mis principales áreas de interés son la arquitectura de soluciones, la computa
 			techStack: "Stack Tecnológico",
 			softSkills: "Habilidades Blandas",
 			softSkillsList: [
-				"Adaptabilidad",
-				"Trabajo en Equipo",
-				"Comunicación",
-				"Creatividad",
-				"Resolución de Problemas",
-				"Aprendizaje Continuo",
+				{
+					name: "Adaptabilidad",
+					proof:
+						"He pasado por proyectos de datos, cloud y full-stack, y me pongo al día rápido con tecnologías nuevas.",
+				},
+				{
+					name: "Trabajo en Equipo",
+					proof: "Cuido el buen ambiente y la colaboración para que el equipo saque los proyectos adelante.",
+				},
+				{
+					name: "Comunicación",
+					proof:
+						"Trato con clientes y compañeros para convertir requisitos de negocio en arquitecturas y tareas concretas.",
+				},
+				{ name: "Creatividad", proof: "Busco formas nuevas y más eficientes de resolver problemas." },
+				{
+					name: "Resolución de Problemas",
+					proof: "Convierto problemas complejos en soluciones claras y mantenibles.",
+				},
+				{
+					name: "Aprendizaje Continuo",
+					proof: "Me formo por mi cuenta de forma constante para estar al día en cloud, datos e IA.",
+				},
 			],
 		},
 		experience: {
@@ -183,8 +209,7 @@ Mis principales áreas de interés son la arquitectura de soluciones, la computa
 			back: "Volver",
 		},
 		footer: {
-			rights: "Todos los derechos reservados.",
-			madeWith: "Hecho con",
+			backToTop: "Volver arriba",
 		},
 		a11y: {
 			home: "Ir al inicio",
