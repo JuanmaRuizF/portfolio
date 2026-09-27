@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { CanaryPeaks } from "./CanaryPeaks";
 
 export function RetrowaveBackground() {
 	const [gridPulses, setGridPulses] = useState<Array<{ id: number; x: number; isVertical: boolean }>>([]);
@@ -75,44 +76,8 @@ export function RetrowaveBackground() {
 				</div>
 			</div>
 
-			{/* Left Mountain Range */}
-			{/* <svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 600 250"
-				className="absolute left-0 bottom-[50%] w-[50%] h-auto z-[5]"
-				preserveAspectRatio="xMinYMax meet"
-			> */}
-			{/* Background layer - lighter purple */}
-			{/* <path
-					d="M0,250 L0,170 L30,168 L50,155 L65,165 L75,145 L88,150 L100,130 L115,138 L128,120 L145,125 L160,115 L178,118 L195,110 L210,115 L225,112 L240,118 L255,125 L275,135 L295,148 L318,165 L345,185 L378,205 L415,222 L458,235 L505,244 L555,248 L600,249 L600,250 Z"
-					fill="#1a0a3e"
-					stroke="#5a3d9a"
-					strokeWidth="1"
-					opacity="0.6"
-				/> */}
-
-			{/* Middle layer - medium purple */}
-			{/* <path
-					d="M0,250 L0,180 L25,178 L42,168 L55,175 L68,158 L82,165 L95,148 L110,155 L125,138 L142,145 L158,132 L175,137 L192,128 L210,133 L228,130 L245,136 L262,143 L282,153 L305,168 L330,185 L360,202 L395,218 L435,232 L480,243 L530,247 L580,249 L600,250 L600,250 Z"
-					fill="#280a5e"
-					stroke="#7a5db0"
-					strokeWidth="1.5"
-					opacity="0.75"
-				/> */}
-
-			{/* Foreground layer - darkest, most detailed */}
-			{/* <path
-					d="M0,250 L0,185 L20,183 L35,175 L48,182 L60,168 L73,175 L85,160 L98,168 L112,152 L128,160 L145,148 L162,153 L180,145 L198,150 L216,147 L234,153 L252,162 L272,175 L295,190 L322,206 L352,221 L388,234 L428,244 L475,248 L525,250 L575,250 L600,250 L600,250 Z"
-					fill="#0d0527"
-					stroke="#d946ef"
-					strokeWidth="2"
-					opacity="0.9"
-				>
-					<animate attributeName="stroke" values="#d946ef;#f0abfc;#d946ef" dur="3s" repeatCount="indefinite" />
-				</path>
-			</svg> */}
-
-			{/* Right Mountain Range */}
+			{/* Teide & Roque Nublo, sitting on the horizon */}
+			<CanaryPeaks />
 
 			{/* Perspective grid floor */}
 			<div className="absolute bottom-0 left-0 right-0 h-[50%] overflow-hidden">
