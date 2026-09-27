@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -13,11 +14,14 @@ export default {
 			},
 		},
 		extend: {
+			screens: {
+				// Landscape phones: the hero has far less height than its width suggests
+				short: { raw: "(max-height: 500px)" },
+			},
 			fontFamily: {
 				display: ["Playfair Display", "Georgia", "serif"],
 				sans: ["Inter", "system-ui", "sans-serif"],
 				mono: ["JetBrains Mono", "monospace"],
-				handwritten: ["Caveat", "cursive"],
 			},
 			colors: {
 				border: "hsl(var(--border))",
@@ -100,5 +104,5 @@ export default {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [animate],
 } satisfies Config;

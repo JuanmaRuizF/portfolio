@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
-import profileImage from "@/assets/personal-image.jpeg";
+import profileImage from "@/assets/personal-image.webp";
 
 export function AboutSection() {
 	const { t } = useLanguage();
@@ -59,8 +59,8 @@ export function AboutSection() {
 								{/* Profile image */}
 								<img
 									src={profileImage}
-									alt="Profile"
-									className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+									alt={t.hero.name}
+									className="w-full h-full object-cover [@media(hover:hover)]:grayscale hover:grayscale-0 transition-all duration-500"
 								/>
 								{/* Overlay gradient for retro effect */}
 								<div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />

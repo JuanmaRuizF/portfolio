@@ -1,25 +1,25 @@
 import type { Project } from "./types";
 
 // Traffic Prediction Images
-import trafficImg0 from "@/assets/projects/traffic-prediction/NY-Traffic-Prediction.JPG";
-import trafficImg1 from "@/assets/projects/traffic-prediction/Img1.png";
-import trafficImg2 from "@/assets/projects/traffic-prediction/Img2.png";
-import trafficImg3 from "@/assets/projects/traffic-prediction/Img3.png";
-import trafficImg4 from "@/assets/projects/traffic-prediction/Img4.png";
-import trafficImg5 from "@/assets/projects/traffic-prediction/Img5.png";
+import trafficImg0 from "@/assets/projects/traffic-prediction/NY-Traffic-Prediction.webp";
+import trafficImg1 from "@/assets/projects/traffic-prediction/Img1.webp";
+import trafficImg2 from "@/assets/projects/traffic-prediction/Img2.webp";
+import trafficImg3 from "@/assets/projects/traffic-prediction/Img3.webp";
+import trafficImg4 from "@/assets/projects/traffic-prediction/Img4.webp";
+import trafficImg5 from "@/assets/projects/traffic-prediction/Img5.webp";
 
 // Location Advisor Images
-import locationImg1 from "@/assets/projects/location-advisor/Img1.PNG";
-import locationImg2 from "@/assets/projects/location-advisor/Img2.PNG";
-import locationImg3 from "@/assets/projects/location-advisor/Img3.PNG";
-import locationImg4 from "@/assets/projects/location-advisor/Img4.PNG";
+import locationImg1 from "@/assets/projects/location-advisor/Img1.webp";
+import locationImg2 from "@/assets/projects/location-advisor/Img2.webp";
+import locationImg3 from "@/assets/projects/location-advisor/Img3.webp";
+import locationImg4 from "@/assets/projects/location-advisor/Img4.webp";
 
 // Classic Fun Games Images
-import gamesCFG from "@/assets/projects/classic-fun-games/CFG.PNG";
-import gamesImg1 from "@/assets/projects/classic-fun-games/Img1.PNG";
-import gamesImg2 from "@/assets/projects/classic-fun-games/Img2.PNG";
-import gamesImg3 from "@/assets/projects/classic-fun-games/Img3.PNG";
-import gamesImg4 from "@/assets/projects/classic-fun-games/Img4.PNG";
+import gamesCFG from "@/assets/projects/classic-fun-games/CFG.webp";
+import gamesImg1 from "@/assets/projects/classic-fun-games/Img1.webp";
+import gamesImg2 from "@/assets/projects/classic-fun-games/Img2.webp";
+import gamesImg3 from "@/assets/projects/classic-fun-games/Img3.webp";
+import gamesImg4 from "@/assets/projects/classic-fun-games/Img4.webp";
 
 export const projects: Project[] = [
 	{

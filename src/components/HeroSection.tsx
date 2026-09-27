@@ -28,7 +28,9 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-						className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-4 tracking-wide px-4"
+						className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl short:text-4xl font-display font-bold mb-4 short:mb-2 tracking-wide px-4"
+						// Dark halo behind the gradient text so it stays readable over the sun
+						style={{ filter: "drop-shadow(0 2px 6px rgb(0 0 0 / 0.7))" }}
 					>
 						<span
 							className="text-neon"
@@ -44,14 +46,14 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
 						initial={{ opacity: 0, scaleX: 0 }}
 						animate={{ opacity: 1, scaleX: 1 }}
 						transition={{ delay: 0.4, duration: 0.6 }}
-						className="h-px w-48 mx-auto mb-6 bg-gradient-to-r from-transparent via-primary to-transparent"
+						className="h-px w-48 mx-auto mb-6 short:mb-3 bg-gradient-to-r from-transparent via-primary to-transparent"
 					/>
 
 					<motion.h2
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.5, duration: 0.6 }}
-						className="text-lg md:text-xl font-mono tracking-[0.2em] uppercase text-foreground/90 mb-8"
+						className="text-lg md:text-xl short:text-base font-mono tracking-[0.2em] uppercase text-foreground/90 mb-[26vh] sm:mb-8 short:mb-5"
 						style={{ textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}
 					>
 						{t.hero.role}
@@ -70,12 +72,12 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.7, duration: 0.6 }}
-						className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+						className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 short:mb-4"
 						style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.6))" }}
 					>
 						<Button
 							onClick={handleDownloadCV}
-							className="group relative overflow-hidden bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-sm font-mono tracking-wider uppercase"
+							className="group relative overflow-hidden bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 short:py-4 text-sm font-mono tracking-wider uppercase"
 						>
 							<span className="relative z-10 flex items-center gap-2">
 								<Download className="h-4 w-4" />
@@ -86,7 +88,7 @@ export function HeroSection({ onContactClick }: HeroSectionProps) {
 						<Button
 							variant="outline"
 							onClick={onContactClick}
-							className="border-primary/50 text-primary hover:bg-primary/10 hover:border-primary px-8 py-6 text-sm font-mono tracking-wider uppercase backdrop-blur-sm"
+							className="border-primary/50 text-primary hover:bg-primary/10 hover:border-primary px-8 py-6 short:py-4 text-sm font-mono tracking-wider uppercase backdrop-blur-sm"
 						>
 							<Mail className="h-4 w-4" />
 							{t.hero.contact}

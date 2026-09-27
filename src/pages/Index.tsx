@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LanguageProvider } from "@/i18n/LanguageContext";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";

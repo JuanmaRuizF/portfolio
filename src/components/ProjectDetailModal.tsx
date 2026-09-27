@@ -55,6 +55,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 						variant="ghost"
 						size="icon"
 						onClick={handleCopyLink}
+						aria-label={t.a11y.copyLink}
 						className="bg-background/80 backdrop-blur-sm border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50"
 					>
 						<Share2 className="h-4 w-4" />
@@ -63,6 +64,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 						variant="ghost"
 						size="icon"
 						onClick={onClose}
+						aria-label={t.projects.close}
 						className="bg-background/80 backdrop-blur-sm border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50"
 					>
 						<X className="h-4 w-4" />
@@ -107,6 +109,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 										variant="ghost"
 										size="icon"
 										onClick={prevImage}
+										aria-label={t.a11y.previousImage}
 										className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50"
 									>
 										<ChevronLeft className="h-4 w-4" />
@@ -115,6 +118,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 										variant="ghost"
 										size="icon"
 										onClick={nextImage}
+										aria-label={t.a11y.nextImage}
 										className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50"
 									>
 										<ChevronRight className="h-4 w-4" />
@@ -126,6 +130,8 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 											<button
 												key={index}
 												onClick={() => setCurrentImageIndex(index)}
+												aria-label={`${t.a11y.goToImage} ${index + 1}`}
+												aria-current={index === currentImageIndex}
 												className={`w-8 h-1 transition-all ${
 													index === currentImageIndex ? "bg-primary" : "bg-foreground/30 hover:bg-foreground/50"
 												}`}

@@ -52,6 +52,7 @@ export function ProjectCard({ project, index, onLearnMore }: ProjectCardProps) {
 							href={project.liveUrl}
 							target="_blank"
 							rel="noopener noreferrer"
+							aria-label={`${t.projects.viewLive}: ${project.title[language]}`}
 							className="p-2 bg-background/80 backdrop-blur-sm border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
 						>
 							<ExternalLink className="h-4 w-4" />
@@ -62,6 +63,7 @@ export function ProjectCard({ project, index, onLearnMore }: ProjectCardProps) {
 							href={project.githubUrl}
 							target="_blank"
 							rel="noopener noreferrer"
+							aria-label={`${t.projects.viewCode}: ${project.title[language]}`}
 							className="p-2 bg-background/80 backdrop-blur-sm border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
 						>
 							<Github className="h-4 w-4" />

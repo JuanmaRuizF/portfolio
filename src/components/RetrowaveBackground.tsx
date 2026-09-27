@@ -1,10 +1,11 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { CanaryPeaks } from "./CanaryPeaks";
 
 export function RetrowaveBackground() {
 	const [gridPulses, setGridPulses] = useState<Array<{ id: number; x: number; isVertical: boolean }>>([]);
 	const [centerLines, setCenterLines] = useState<number[]>([]);
+	const reduceMotion = useReducedMotion();
 
 	useEffect(() => {
 		const calculateCenterLines = () => {
@@ -21,7 +22,7 @@ export function RetrowaveBackground() {
 	}, []);
 
 	useEffect(() => {
-		if (centerLines.length === 0) return;
+		if (centerLines.length === 0 || reduceMotion) return;
 
 		let pulseId = 0;
 
@@ -41,7 +42,7 @@ export function RetrowaveBackground() {
 		const interval = setInterval(addGridPulse, 2500);
 		addGridPulse(); // Start with one immediately
 		return () => clearInterval(interval);
-	}, [centerLines]);
+	}, [centerLines, reduceMotion]);
 
 	return (
 		<div className="absolute inset-0 overflow-hidden">
@@ -55,7 +56,7 @@ export function RetrowaveBackground() {
 			<div className="absolute inset-0 bg-gradient-to-b from-[#1a0a2e] from-0% via-[#2d1b4e] via-30% to-transparent to-50%" />
 
 			{/* Sun */}
-			<div className="absolute left-1/2 -translate-x-1/2 bottom-[38%] w-[220px] h-[220px] md:w-[300px] md:h-[300px]">
+			<div className="absolute left-1/2 -translate-x-1/2 bottom-[38%] w-[220px] h-[220px] md:w-[300px] md:h-[300px] short:w-[160px] short:h-[160px]">
 				{/* Sun glow */}
 				<div className="absolute inset-0 rounded-full bg-gradient-to-b from-[hsl(50,100%,70%)] via-[hsl(30,100%,55%)] to-[hsl(320,100%,50%)] blur-xl opacity-80" />
 				{/* Sun body */}

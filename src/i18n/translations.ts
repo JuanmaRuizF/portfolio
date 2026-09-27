@@ -86,6 +86,18 @@ My main areas of interest are solution architecture, cloud computing, and data s
 			rights: "All rights reserved.",
 			madeWith: "Made with",
 		},
+		a11y: {
+			home: "Go to top",
+			selectLanguage: "Select language",
+			openMenu: "Open menu",
+			closeMenu: "Close menu",
+			copyLink: "Copy project link",
+			previousImage: "Previous image",
+			nextImage: "Next image",
+			goToImage: "Go to image",
+			copyEmail: "Copy email",
+			copyPhone: "Copy phone number",
+		},
 	},
 	es: {
 		nav: {
@@ -173,6 +185,18 @@ Mis principales áreas de interés son la arquitectura de soluciones, la computa
 		footer: {
 			rights: "Todos los derechos reservados.",
 			madeWith: "Hecho con",
+		},
+		a11y: {
+			home: "Ir al inicio",
+			selectLanguage: "Seleccionar idioma",
+			openMenu: "Abrir menú",
+			closeMenu: "Cerrar menú",
+			copyLink: "Copiar enlace del proyecto",
+			previousImage: "Imagen anterior",
+			nextImage: "Imagen siguiente",
+			goToImage: "Ir a la imagen",
+			copyEmail: "Copiar email",
+			copyPhone: "Copiar teléfono",
 		},
 	},
 };

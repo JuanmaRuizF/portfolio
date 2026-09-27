@@ -132,6 +132,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 								<Input
 									name="from_name"
 									placeholder={t.contact.namePlaceholder}
+									aria-label={t.contact.name}
 									value={formData.name}
 									onChange={(e) => setFormData({ ...formData, name: e.target.value })}
 									className="bg-secondary/30 border-border/50 focus:border-primary"
@@ -143,6 +144,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 									name="reply_to"
 									type="email"
 									placeholder={t.contact.emailPlaceholder}
+									aria-label={t.contact.email}
 									value={formData.email}
 									onChange={(e) => setFormData({ ...formData, email: e.target.value })}
 									className="bg-secondary/30 border-border/50 focus:border-primary"
@@ -153,6 +155,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 								<Textarea
 									name="message"
 									placeholder={t.contact.messagePlaceholder}
+									aria-label={t.contact.message}
 									value={formData.message}
 									onChange={(e) => setFormData({ ...formData, message: e.target.value })}
 									className="bg-secondary/30 border-border/50 focus:border-primary min-h-[120px]"
@@ -194,6 +197,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 								</button>
 								<button
 									onClick={handleCopyEmail}
+									aria-label={t.a11y.copyEmail}
 									className="px-4 border-l border-border/50 hover:bg-primary/5 transition-all flex items-center justify-center"
 								>
 									{copied ? (
@@ -225,6 +229,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 								</a>
 								<button
 									onClick={handleCopyPhone}
+									aria-label={t.a11y.copyPhone}
 									className="px-4 border-l border-border/50 hover:bg-primary/5 transition-all flex items-center justify-center"
 								>
 									{phoneCopied ? (

@@ -35,7 +35,8 @@ export function Navigation() {
 			setIsOpen(false);
 			// Small delay to allow menu to close before scrolling
 			setTimeout(() => {
-				element.scrollIntoView({ behavior: "smooth" });
+				// Smoothness comes from CSS scroll-behavior, which is disabled under reduced motion
+				element.scrollIntoView();
 			}, 100);
 		}
 	};
@@ -63,6 +64,7 @@ export function Navigation() {
 			<nav className="section-container flex items-center justify-between h-16">
 				<motion.button
 					onClick={() => scrollToSection("home")}
+					aria-label={t.a11y.home}
 					className="text-xl font-mono font-bold text-neon tracking-tight"
 					whileHover={{ scale: 1.02 }}
 					whileTap={{ scale: 0.98 }}
@@ -91,7 +93,7 @@ export function Navigation() {
 							className="text-muted-foreground hover:text-primary hover:bg-primary/10"
 						>
 							<Globe className="h-4 w-4" />
-							<span className="sr-only">Select language</span>
+							<span className="sr-only">{t.a11y.selectLanguage}</span>
 						</Button>
 
 						{/* Language Dropdown */}
@@ -132,6 +134,7 @@ export function Navigation() {
 							variant="ghost"
 							size="icon"
 							onClick={() => setIsLangOpen(!isLangOpen)}
+							aria-label={t.a11y.selectLanguage}
 							className="text-muted-foreground hover:text-primary"
 						>
 							<Globe className="h-4 w-4" />
@@ -170,6 +173,8 @@ export function Navigation() {
 						variant="ghost"
 						size="icon"
 						onClick={() => setIsOpen(!isOpen)}
+						aria-label={isOpen ? t.a11y.closeMenu : t.a11y.openMenu}
+						aria-expanded={isOpen}
 						className="text-muted-foreground hover:text-primary"
 					>
 						{isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
