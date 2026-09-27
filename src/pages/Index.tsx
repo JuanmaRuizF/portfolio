@@ -7,6 +7,7 @@ import { SkillsSection } from "@/components/SkillsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactModal } from "@/components/ContactModal";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
 	const [isContactOpen, setIsContactOpen] = useState(false);
@@ -22,6 +23,7 @@ const Index = () => {
 					<SkillsSection />
 					<ProjectsSection />
 				</main>
+				<Footer onContactClick={() => setIsContactOpen(true)} />
 				<ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
 			</div>
 		</LanguageProvider>
